@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyGravity()
     {     
-        if(IsGrounded && _playerAnimationsController.GetBoolAnimator(_animIDJumping) == false)
+        if(IsGrounded && !_playerAnimationsController.GetBoolAnimator(_animIDJumping))
         {
             _controller.Move(Physics.gravity * Time.deltaTime);            
         }
