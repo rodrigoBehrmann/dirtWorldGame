@@ -7,6 +7,16 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private CharacterController _controller;
 
+    [Header("Player Movement Settings")]
+    public float WalkingSpeed;
+    public float RunningSpeed;
+    public float JumpHeight = 2f;
+
+    [Header("Player Camera Settings")]
+    public float RotationDelay = 20f;
+    private Camera _playerCamera;
+    private Vector3 _aimDirection;
+
     private float _horizontalInput;
     private float _verticalInput;
 
@@ -22,6 +32,11 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _controller = GetComponent<CharacterController>();
+
+        _playerCamera = Camera.main;
+
+        //disable mouse cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Start()
@@ -69,13 +84,33 @@ public class PlayerController : MonoBehaviour
     {
         _playerAnimationsController.SetFloatAnimator(_animIDSpeedX, _horizontalInput);
         _playerAnimationsController.SetFloatAnimator(_animIDSpeedY, _verticalInput);
+
+        HandleRotation();
+    }
+
+    private void HandleRotation()
+    {
+        if (_horizontalInput != 0 || _verticalInput != 0)
+        {
+            _aimDirection = new Vector3(_playerCamera.transform.forward.x, 0.0f, _playerCamera.transform.forward.z).normalized;               
+
+            transform.forward = Vector3.Lerp(transform.forward, _aimDirection, Time.deltaTime * RotationDelay);
+        }
+        
     }
 
     void OnAnimatorMove()
     {
         if (_controller.enabled)
         {
-            _controller.Move(_animator.deltaPosition);                
+            if (_playerAnimationsController.GetBoolAnimator(_animRunning))
+            {
+                _controller.Move(_animator.deltaPosition * RunningSpeed);
+            }
+            else
+            {
+                _controller.Move(_animator.deltaPosition * WalkingSpeed);
+            }
         }
     }
 }

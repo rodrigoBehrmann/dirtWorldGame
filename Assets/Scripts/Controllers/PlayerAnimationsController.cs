@@ -4,13 +4,13 @@ public class PlayerAnimationsController : MonoBehaviour
 {
     private Animator _animator;
 
-    
+
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
-    
+
     public void SetTriggerAnimator(string triggerName)
     {
         _animator.SetTrigger(triggerName);
@@ -28,8 +28,24 @@ public class PlayerAnimationsController : MonoBehaviour
 
     public void SetFloatAnimator(int id, float value)
     {
-        _animator.SetFloat(id, value);
+        _animator.SetFloat(id, value, 0.3f, Time.deltaTime);
+    }
+
+    public bool GetBoolAnimator(int id)
+    {
+       return _animator.GetBool(id);
+    }
+
+    public float GetFloatAnimator(int id)
+    {
+        return _animator.GetFloat(id);
+    }
+
+    public int GetIntAnimator(int id)
+    {
+        return _animator.GetInteger(id);
     }
     
+
 
 }
