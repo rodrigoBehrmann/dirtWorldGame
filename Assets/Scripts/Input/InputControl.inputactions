@@ -52,7 +52,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Running",
+                    "name": "Run",
                     "type": "Button",
                     "id": "a56936b3-8f3a-4767-ab17-da88027e9d7e",
                     "expectedControlType": "",
@@ -168,7 +168,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Running",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

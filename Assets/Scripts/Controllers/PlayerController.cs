@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour
     public float RunningSpeed;
     public float JumpHeight = 2f;
 
+    [Header("Player Grounded Settings")]
+    public bool IsGrounded;
+    public float GroundedRadius;
+    public float GroundedOffset;
+    public LayerMask GroundLayers;
+    private Vector3 _spherePosition;
+
     [Header("Player Camera Settings")]
     public float RotationDelay = 20f;
     private Camera _playerCamera;
@@ -35,7 +42,6 @@ public class PlayerController : MonoBehaviour
 
         _playerCamera = Camera.main;
 
-        //disable mouse cursor
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -53,14 +59,26 @@ public class PlayerController : MonoBehaviour
             SetMovementInputs(0, 0);
         };
 
-        inputManager.InputControl.Player.Running.started += ctx =>
+        inputManager.InputControl.Player.Run.started += ctx =>
         {
             _playerAnimationsController.SetBoolAnimator(_animRunning, true);
         };
 
-        inputManager.InputControl.Player.Running.canceled += ctx =>
+        inputManager.InputControl.Player.Run.canceled += ctx =>
         {
             _playerAnimationsController.SetBoolAnimator(_animRunning, false);
+        };
+
+        inputManager.InputControl.Player.Jump.started += ctx =>
+        {
+            if (!IsGrounded) return;           
+            
+            _playerAnimationsController.SetBoolAnimator(_animIDJumping, true);
+        };
+
+        inputManager.InputControl.Player.Jump.canceled += ctx =>
+        {
+            _playerAnimationsController.SetBoolAnimator(_animIDJumping, false);
         };
 
         AssignAnimationIDs();
@@ -82,21 +100,39 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        GroundedCheck();
+
         _playerAnimationsController.SetFloatAnimator(_animIDSpeedX, _horizontalInput);
         _playerAnimationsController.SetFloatAnimator(_animIDSpeedY, _verticalInput);
 
         HandleRotation();
     }
 
+    private void GroundedCheck()
+    {
+        _spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+
+        IsGrounded = Physics.CheckSphere(_spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+
+        ApplyGravity();
+    }
+
+    private void ApplyGravity()
+    {     
+        if(IsGrounded && _playerAnimationsController.GetBoolAnimator(_animIDJumping) == false)
+        {
+            _controller.Move(Physics.gravity * Time.deltaTime);            
+        }
+    }
+
     private void HandleRotation()
     {
         if (_horizontalInput != 0 || _verticalInput != 0)
         {
-            _aimDirection = new Vector3(_playerCamera.transform.forward.x, 0.0f, _playerCamera.transform.forward.z).normalized;               
+            _aimDirection = new Vector3(_playerCamera.transform.forward.x, 0.0f, _playerCamera.transform.forward.z).normalized;
 
             transform.forward = Vector3.Lerp(transform.forward, _aimDirection, Time.deltaTime * RotationDelay);
         }
-        
     }
 
     void OnAnimatorMove()
@@ -112,5 +148,12 @@ public class PlayerController : MonoBehaviour
                 _controller.Move(_animator.deltaPosition * WalkingSpeed);
             }
         }
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = IsGrounded ? Color.green : Color.red;
+
+        Gizmos.DrawSphere(_spherePosition, GroundedRadius);
     }
 }
