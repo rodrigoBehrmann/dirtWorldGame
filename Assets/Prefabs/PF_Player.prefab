@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 8686830784833111580}
   m_Layer: 0
   m_Name: PF_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1352,6 +1352,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0667125cc5f23af499df08e13774811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  WalkingSpeed: 1.3
+  RunningSpeed: 2
+  JumpHeight: 2
+  IsGrounded: 0
+  GroundedRadius: 0.4
+  GroundedOffset: 0
+  GroundLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  RotationDelay: 20
 --- !u!114 &8686830784833111580
 MonoBehaviour:
   m_ObjectHideFlags: 0

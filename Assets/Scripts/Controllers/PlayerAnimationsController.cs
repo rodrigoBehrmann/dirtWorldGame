@@ -11,6 +11,21 @@ public class PlayerAnimationsController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        EventBus.Subscribe<AddItemToInventoryEvent>(OnAddItemToInventory);
+    }
+
+    private void OnDisable()
+    {
+        EventBus.Unsubscribe<AddItemToInventoryEvent>(OnAddItemToInventory);
+    }
+
+    private void OnAddItemToInventory(AddItemToInventoryEvent eventData)
+    {
+        SetTriggerAnimator("Looting");
+    }
+
     public void SetTriggerAnimator(string triggerName)
     {
         _animator.SetTrigger(triggerName);
