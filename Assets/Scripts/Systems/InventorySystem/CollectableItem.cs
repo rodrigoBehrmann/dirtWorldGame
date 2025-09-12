@@ -39,6 +39,8 @@ public class CollectableItem : MonoBehaviour
 
         _inventoryItem.ItemType = item.ItemType;
 
+        _inventoryItem.ItemCategory = item.ItemCategory;
+
         _inventoryItem.Amount = item.Amount;
     }
 

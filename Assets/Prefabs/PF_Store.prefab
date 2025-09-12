@@ -869,6 +869,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 390977f64b0ea8d49a55ea10b78c7f7e, type: 2}
   _storeItemPrefab: {fileID: 498149406372408771, guid: 3cd0754afa691cd4db86a531ab93e6bb, type: 3}
   _closeButton: {fileID: 2330528022108850384}
+  _inventoryData: {fileID: 11400000, guid: 2c0f8cad9f2942149b2c9dad63137656, type: 2}
+  _playerData: {fileID: 11400000, guid: 1df26429149a5274c9e4f722edbbd45f, type: 2}
 --- !u!1 &9158605943798305278
 GameObject:
   m_ObjectHideFlags: 0

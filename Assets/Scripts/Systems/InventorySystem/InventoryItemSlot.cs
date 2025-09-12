@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,6 +18,13 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     private Vector3 _mousePosition;
     private InputManager _inputManager;
+    private Button _itemButton;
+    private InventoryItem _inventoryItem;
+
+    void Awake()
+    {
+        _itemButton = GetComponent<Button>();
+    }
 
     private void Start()
     {
@@ -25,10 +33,14 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         {
             _mousePosition = ctx.ReadValue<Vector2>();
         };
+
+        _itemButton.onClick.AddListener(OnItemButtonClicked);
     }
 
-    public void SetItem(InventoryItem item)
+    public void SetItem(InventoryItem item, bool addItem, int amount = 1)
     {
+        _inventoryItem = item;
+
         ItemName = item.ItemName;
 
         ItemIcon.sprite = item.ItemIcon;
@@ -37,7 +49,15 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         ItemType = item.ItemType;
 
-        ItemAmount += item.Amount;
+        if (addItem)
+        {
+            ItemAmount += amount;
+        }else
+        {
+            ItemAmount -= amount;
+        }
+
+        item.Amount = ItemAmount;
 
         ItemAmountText.text = ItemAmount.ToString();
     }
@@ -66,4 +86,11 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         transform.localPosition = Vector3.zero;
     }
+
+    private void OnItemButtonClicked()
+    {
+        _inventoryItem.Amount = ItemAmount;        
+        EventBus.Invoke(new InventoryItemSelectedEvent(_inventoryItem));
+    }
+
 }

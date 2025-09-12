@@ -1,8 +1,8 @@
 public enum StoreType
 {
     TrashStore,
-    ClothStore,
+    ShirtStore,
     PantStore,
-    HatStore,
+    HairStore,
     ShoeStore,
 }

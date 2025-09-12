@@ -29,10 +29,8 @@ public class PlayerCustomizationController : MonoBehaviour
 
     private void OnPlayerCustomization(PlayerCustomizationEvent evt)
     {
-        Debug. Log($"Equipping Item: {evt.ItemName} of Category: {evt.ItemCategory}");
         switch (evt.ItemCategory)
         {
-            case ItemCategory.Hat:
             case ItemCategory.Hair:
                 EquipItem(_headItems, evt.ItemName, evt.ItemCategory);
                 break;
@@ -42,7 +40,6 @@ public class PlayerCustomizationController : MonoBehaviour
             case ItemCategory.Pant:
                 EquipItem(_legsItems, evt.ItemName, evt.ItemCategory);
                 break;
-            case ItemCategory.Shoe:
             case ItemCategory.Shoes:
                 EquipItem(_feetItems, evt.ItemName, evt.ItemCategory);
                 break;
@@ -59,7 +56,6 @@ public class PlayerCustomizationController : MonoBehaviour
             {
                 switch (itemCategory)
                 {
-                    case ItemCategory.Hat:
                     case ItemCategory.Hair:
                         _headMesh.sharedMesh = item.ItemMesh;
                         break;
@@ -69,9 +65,9 @@ public class PlayerCustomizationController : MonoBehaviour
                     case ItemCategory.Pant:
                         _legsMesh.sharedMesh = item.ItemMesh;
                         break;
-                    case ItemCategory.Shoe:
                     case ItemCategory.Shoes:
-                        _feetMesh.sharedMesh = item.ItemMesh;
+                        Debug.Log($"Equipping Shoes Mesh: {item.ItemMesh.name}");
+                        _feetMesh.sharedMesh = item.ItemMesh;                        
                         break;
                     default:
                         break;

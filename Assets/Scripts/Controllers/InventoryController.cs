@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,15 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private GameObject _inventoryItemPrefab;
     [SerializeField] private GameObject _inventorySlotsContainer;
     [SerializeField] private GameObject _rootCanvas;
+    [SerializeField] private Button _closeInventoryButton;
+
+    [Header("Item Selected Settings")]
+    [SerializeField] private GameObject _itemSelectedPanel;
+    [SerializeField] private TextMeshProUGUI _itemNameText;
+    [SerializeField] private TextMeshProUGUI _itemAmountText;
+    [SerializeField] private Image _itemIconImage;
+    [SerializeField] private Button _removeItemButton;
+    private InventoryItem _selectedItem;
 
     private InputManager _inputManager;
 
@@ -25,6 +35,10 @@ public class InventoryController : MonoBehaviour
         };
 
         CreateInventorySlots();
+
+        _closeInventoryButton.onClick.AddListener(OnInventoryOpened);
+
+        _removeItemButton.onClick.AddListener(OnRemoveItemButtonClicked);
     }    
     
     private void CreateInventorySlots()
@@ -40,7 +54,7 @@ public class InventoryController : MonoBehaviour
             if (i < _inventoryData.InventoryItems.Count)
             {
                 GameObject inventoryItem = Instantiate(_inventoryItemPrefab, slot.transform);
-                inventoryItem.GetComponent<InventoryItemSlot>().SetItem(_inventoryData.InventoryItems[i]);
+                inventoryItem.GetComponent<InventoryItemSlot>().SetItem(_inventoryData.InventoryItems[i], true);
             }
         }
         
@@ -50,7 +64,7 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    private void UpdateInventoryItems(InventoryItem inventoryItem)
+    private void UpdateInventoryItems(InventoryItem inventoryItem, bool addItem, int amount = 0)
     {
         if (_inventoryData.InventoryItems.Count > 0)
         {
@@ -63,9 +77,36 @@ public class InventoryController : MonoBehaviour
                     if (slot.childCount > 0)
                     {
                         InventoryItemSlot itemSlot = slot.GetChild(0).GetComponent<InventoryItemSlot>();
+
                         if (itemSlot.ItemName == inventoryItem.ItemName)
                         {
                             index = i;
+                            if (!addItem)
+                            {
+
+                                if (itemSlot.ItemAmount <= 0)
+                                {
+                                    Debug.Log("Removing item slot: " + itemSlot.ItemName);
+
+                                    Destroy(itemSlot.gameObject);
+                                    return;
+                                }
+                                else
+                                {
+                                    itemSlot.SetItem(inventoryItem, addItem, amount);
+
+                                    // if (itemSlot.ItemAmount >= amount)
+                                    // {
+                                    //     Debug.Log("Removing item slot: " + itemSlot.ItemName);
+
+                                    //     Destroy(itemSlot.gameObject);
+                                    //     return;
+                                    // }
+                                }
+
+                                return;
+                            }
+
                             break;
                         }
                     }
@@ -86,7 +127,14 @@ public class InventoryController : MonoBehaviour
 
                 InventoryItemSlot itemSlot = slot.GetChild(0).GetComponent<InventoryItemSlot>();
 
-                itemSlot.SetItem(inventoryItem);
+                itemSlot.SetItem(inventoryItem, addItem);
+
+                if (inventoryItem.Amount <= 0 && !addItem)
+                {
+                    Debug.Log("Removing item slot: " + itemSlot.ItemName);
+                    Destroy(itemSlot.gameObject);
+                }
+
             }
             else
             {
@@ -97,12 +145,24 @@ public class InventoryController : MonoBehaviour
                     {
                         InventoryItemSlot itemSlot = Instantiate(_inventoryItemPrefab, slot.transform).GetComponent<InventoryItemSlot>();
 
-                        itemSlot.SetItem(inventoryItem);
+                        itemSlot.SetItem(inventoryItem, addItem);
 
                         itemSlot.RootCanvas = _rootCanvas.transform;
 
                         break;
                     }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _inventorySlotsContainer.transform.childCount; i++)
+            {
+                Transform slot = _inventorySlotsContainer.transform.GetChild(i);
+                if (slot.childCount > 0)
+                {
+                    Debug.Log("Removing item slot");
+                    Destroy(slot.GetChild(0).gameObject);
                 }
             }
         }
@@ -123,19 +183,18 @@ public class InventoryController : MonoBehaviour
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        }
-
-        if (_inventoryPanel.activeSelf)
-        {
-            //_inventoryPanelButton.Select();
+            _itemSelectedPanel.SetActive(false);
         }
     }
+
 
     void OnEnable()
     {
         EventBus.Subscribe<AddItemToInventoryEvent>(OnAddItemToInventory);
 
         EventBus.Subscribe<RemoveItemFromInventoryEvent>(OnRemoveItemFromInventory);
+
+        EventBus.Subscribe<InventoryItemSelectedEvent>(OnInventoryItemSelected);
     }
 
     void OnDisable()
@@ -157,7 +216,54 @@ public class InventoryController : MonoBehaviour
 
     private void OnRemoveItemFromInventory(RemoveItemFromInventoryEvent evt)
     {
-        RemoveItemFromInventory(evt.InventoryItem);
+        RemoveItemFromInventory(evt.InventoryItem, evt.Amount);
+    }
+
+    private void OnInventoryItemSelected(InventoryItemSelectedEvent evt)
+    {
+        _itemSelectedPanel.SetActive(true);
+
+        _selectedItem = new InventoryItem
+        {
+            ItemName = evt.InventoryItem.ItemName,
+            ItemIcon = evt.InventoryItem.ItemIcon,
+            ItemType = evt.InventoryItem.ItemType,
+            ItemCategory = evt.InventoryItem.ItemCategory,
+            Amount = evt.InventoryItem.Amount
+        };
+
+        _itemNameText.text = _selectedItem.ItemName;
+
+        _itemIconImage.sprite = _selectedItem.ItemIcon;
+
+        _itemAmountText.text = _selectedItem.Amount.ToString();
+
+        if (_selectedItem.ItemType == ItemType.Equipment)
+        {
+            _removeItemButton.interactable = false;
+            _removeItemButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            _removeItemButton.gameObject.SetActive(true);
+            _removeItemButton.interactable = _selectedItem.Amount > 0;
+        }
+        
+    }
+
+    private void OnRemoveItemButtonClicked()
+    {
+        _itemSelectedPanel.SetActive(false);
+        RemoveItemFromInventory(_selectedItem,_selectedItem.Amount);
+    }
+
+    private void SetItemSelectedInfo(InventoryItem inventoryItem)
+    {
+        _itemSelectedPanel.SetActive(true);
+
+        _itemNameText.text = inventoryItem.ItemName;
+
+        _itemIconImage.sprite = inventoryItem.ItemIcon;
     }
 
     public void AddItemToInventory(InventoryItem inventoryItem)
@@ -168,30 +274,32 @@ public class InventoryController : MonoBehaviour
             {
                 invItem.Amount += inventoryItem.Amount;
 
-                UpdateInventoryItems(inventoryItem);
+                UpdateInventoryItems(inventoryItem, true);
 
                 return;
             }
         }
-        _inventoryData.InventoryItems.Add(inventoryItem); 
+        _inventoryData.InventoryItems.Add(inventoryItem);
 
-        UpdateInventoryItems(inventoryItem);
+        UpdateInventoryItems(inventoryItem,true);
     }
 
-    public void RemoveItemFromInventory(InventoryItem inventoryItem)
+    public void RemoveItemFromInventory(InventoryItem inventoryItem, int amount = 1)
     {
         foreach (var invItem in _inventoryData.InventoryItems)
         {
             if (invItem.ItemName == inventoryItem.ItemName)
             {
-                invItem.Amount -= inventoryItem.Amount;
-
-                UpdateInventoryItems(inventoryItem);
+                invItem.Amount -= amount;
 
                 if (invItem.Amount <= 0)
                 {
                     _inventoryData.InventoryItems.Remove(invItem);
                 }
+
+                UpdateInventoryItems(inventoryItem, false, amount);
+
+                EventBus.Invoke(new InventoryHasChangedEvent(invItem.Amount));
                 
                 return;
             }

@@ -17,6 +17,10 @@ public class Store : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private Button _closeButton;
 
+    [Header("SO")]
+    [SerializeField] private InventorySO _inventoryData;
+    [SerializeField] private PlayerDataSO _playerData;
+
     void Start()
     {
         _closeButton.onClick.AddListener(CloseStore);
@@ -34,7 +38,7 @@ public class Store : MonoBehaviour
         {
             var storeItem = Instantiate(_storeItemPrefab, _storeContainer.transform);
 
-            storeItem.GetComponent<StoreItem>().SetItemData(item);
+            storeItem.GetComponent<StoreItem>().SetItemData(item, _inventoryData, _playerData);
         }
     }
     

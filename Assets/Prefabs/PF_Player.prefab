@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 234184201479816792}
   - component: {fileID: 3770423518386729504}
   - component: {fileID: 8686830784833111580}
+  - component: {fileID: 1800051096451111092}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Player
@@ -1374,6 +1375,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63ed2f4016be864f953bb0e5afa5787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationsController
+--- !u!114 &1800051096451111092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525346246134289526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00202f446a02c749ae73179de30a792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  _headMesh: {fileID: 4779817726879044791}
+  _bodyMesh: {fileID: 7847308875571263360}
+  _legsMesh: {fileID: 118591583621909936}
+  _feetMesh: {fileID: 6445594189120769485}
+  _headItems:
+  - ItemName: Hair_1
+    ItemCategory: 5
+    ItemMesh: {fileID: 4300000, guid: ce8db3cb403b5024687e9b5006cb18da, type: 2}
+  - ItemName: Hair_2
+    ItemCategory: 5
+    ItemMesh: {fileID: 4300000, guid: 1567aef0ffed61e40ba73e0ad07800bf, type: 2}
+  - ItemName: Hair_3
+    ItemCategory: 5
+    ItemMesh: {fileID: 4300000, guid: 9c258ba411abbbc45a3091a9176614e3, type: 2}
+  _bodyItems:
+  - ItemName: Shirt_1
+    ItemCategory: 2
+    ItemMesh: {fileID: 4300000, guid: 47b58bd9a8acc7e4890cfbbbad0297d4, type: 2}
+  - ItemName: Shirt_2
+    ItemCategory: 2
+    ItemMesh: {fileID: 4300000, guid: 4f6b42e8a0b4595468b1a96b2a28c7cc, type: 2}
+  - ItemName: Shirt_3
+    ItemCategory: 2
+    ItemMesh: {fileID: 4300000, guid: aa8dc50c6fb0635458312a0317f0c20e, type: 2}
+  _legsItems:
+  - ItemName: Pant_1
+    ItemCategory: 3
+    ItemMesh: {fileID: 4300000, guid: 0d12efd685c3c5742af05de2f030e1da, type: 2}
+  - ItemName: Pant_2
+    ItemCategory: 3
+    ItemMesh: {fileID: 4300000, guid: d8da60a2d30dc764ab974c70a4e1ba37, type: 2}
+  _feetItems:
+  - ItemName: Shoes_1
+    ItemCategory: 4
+    ItemMesh: {fileID: 4300000, guid: 6bdca2c46c8b8214fb0ff203bc7c3c94, type: 2}
+  - ItemName: Shoes_2
+    ItemCategory: 4
+    ItemMesh: {fileID: 4300000, guid: 089f1234dfb9a784dadf0147a7045edc, type: 2}
+  - ItemName: Shoes_3
+    ItemCategory: 4
+    ItemMesh: {fileID: 4300000, guid: ccf6cf18853a52644b7a87082305c086, type: 2}
 --- !u!1 &8555966728263867432
 GameObject:
   m_ObjectHideFlags: 0

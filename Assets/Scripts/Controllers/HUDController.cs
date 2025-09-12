@@ -14,16 +14,25 @@ public class HUDController : MonoBehaviour
         _moneyText.text = _playerData.InitialMoney.ToString();
         
         _playerData.CurrentMoney = _playerData.InitialMoney;
-    }     
+    }
 
     private void OnEnable()
     {
         EventBus.Subscribe<BuyItemEvent>(OnBuyItemEvent);
-    }  
+        
+        EventBus.Subscribe<SellTrashEvent>(OnSellTrashEvent);
+    }
 
     private void OnDisable()
     {
         EventBus.Unsubscribe<BuyItemEvent>(OnBuyItemEvent);
+        
+        EventBus.Unsubscribe<SellTrashEvent>(OnSellTrashEvent);
+    }
+
+    private void OnSellTrashEvent(SellTrashEvent evt)
+    {
+        UpdateMoneyUI();
     }
 
     private void OnBuyItemEvent(BuyItemEvent evt)

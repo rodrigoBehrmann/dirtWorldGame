@@ -4,6 +4,7 @@ public class NPCStore : MonoBehaviour
 {
     [Header("Store Settings")]
     [SerializeField] private Store _storeType;
+    [SerializeField] private SellTrashStore _storeTrash;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _interactableCanvas;
@@ -20,7 +21,14 @@ public class NPCStore : MonoBehaviour
         {
             if (_canInteract)
             {
-                _storeType.OpenStore();
+                if (_storeType != null)
+                {
+                    _storeType.OpenStore();
+                }
+                else if (_storeTrash != null)
+                {
+                    _storeTrash.OpenStore();
+                }                
             }
         };
         
