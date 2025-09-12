@@ -2,19 +2,26 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class CarController : MonoBehaviour
+public class NPCController : MonoBehaviour
 {
     [Header("Patrol Settings")]
     [SerializeField] private Transform[] PatrolPoints;
     [SerializeField] private float _waitTimer;
-    [SerializeField] private float _currentWaitTimer;
+    private float _currentWaitTimer;
 
     private NavMeshAgent _agent;
     private int _currentPointIndex = 0;
+    private Animator _animator;
 
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+
+        Debug.Log($"Agent Type ID: {_agent.agentTypeID}");
+        if (_agent.agentTypeID == 0)
+        {
+            _animator = GetComponent<Animator>();
+        }
     }
 
     void Start()
@@ -28,6 +35,11 @@ public class CarController : MonoBehaviour
     void Update()
     {
         SetNextDestination();
+
+        if (_agent.agentTypeID == 0)
+        {
+            Debug.Log($"Velocity: {_agent.velocity}, Speed: {_agent.speed}");
+        }
     }
 
     private void SetNextDestination()
@@ -47,6 +59,11 @@ public class CarController : MonoBehaviour
     private void MoveToNextPoint()
     {
         _agent.destination = PatrolPoints[_currentPointIndex].position;
+
+        if (_animator != null)
+        {
+            _animator.SetFloat("SpeedY", 1);
+        }
 
         _currentPointIndex = (_currentPointIndex + 1) % PatrolPoints.Length;
     }

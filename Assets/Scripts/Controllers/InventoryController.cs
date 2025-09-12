@@ -64,6 +64,24 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    private void VerifyEmptyItemsInSlots()
+    {
+        for (int i = 0; i < _inventorySlotsContainer.transform.childCount; i++)
+        {
+            Transform slot = _inventorySlotsContainer.transform.GetChild(i);
+            if (slot.childCount > 0)
+            {
+                InventoryItemSlot itemSlot = slot.GetChild(0).GetComponent<InventoryItemSlot>();
+
+                bool itemHaveAmount = itemSlot.ItemAmount > 0;
+                if (!itemHaveAmount)
+                {
+                    Destroy(itemSlot.gameObject);
+                }
+            }
+        }
+    }
+
     private void UpdateInventoryItems(InventoryItem inventoryItem, bool addItem, int amount = 0)
     {
         if (_inventoryData.InventoryItems.Count > 0)
@@ -177,6 +195,7 @@ public class InventoryController : MonoBehaviour
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            VerifyEmptyItemsInSlots();
         }
         else
         {
