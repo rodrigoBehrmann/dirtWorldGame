@@ -23,7 +23,10 @@ public class PlayerAnimationsController : MonoBehaviour
 
     private void OnAddItemToInventory(AddItemToInventoryEvent eventData)
     {
-        SetTriggerAnimator("Looting");
+        if (eventData.ActiveAnimation)
+        {
+            SetTriggerAnimator("Looting");            
+        }
     }
 
     public void SetTriggerAnimator(string triggerName)

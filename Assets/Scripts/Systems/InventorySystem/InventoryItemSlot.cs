@@ -8,6 +8,7 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public Image ItemIcon;
     public TextMeshProUGUI ItemAmountText;
     [HideInInspector] public ItemType ItemType;
+    [HideInInspector] public ItemCategory ItemCategory;
     [HideInInspector] public string ItemName;
     [HideInInspector] public int ItemAmount = 0;
 
@@ -31,6 +32,8 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         ItemName = item.ItemName;
 
         ItemIcon.sprite = item.ItemIcon;
+
+        ItemCategory = item.ItemCategory;
 
         ItemType = item.ItemType;
 

@@ -88,4 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b2bcc580e80e54ea3114c2c2d25bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  SlotType: 020000000100000000000000
+  ItemType: 000000000100000002000000
+  ItemCategory: 

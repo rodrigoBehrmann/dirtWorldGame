@@ -6,5 +6,6 @@ public enum ItemCategory
     Pant,
     Shoes,
     Hair,
-    Hat
+    Hat,
+    Potion
 }
