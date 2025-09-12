@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HUDController
   _playerData: {fileID: 11400000, guid: 1df26429149a5274c9e4f722edbbd45f, type: 2}
   _moneyText: {fileID: 0}
+  _pauseMenu: {fileID: 0}
+  _yesButton: {fileID: 0}
+  _noButton: {fileID: 0}

@@ -7,6 +7,7 @@ public class Store : MonoBehaviour
     [Header("Store Settings")]
     [SerializeField] private StoreType _storeType;
     [SerializeField] private GameObject _storePanel;
+    [SerializeField] private GameObject _storePanelBorder;
     [SerializeField] private GameObject _storeContainer;
     [SerializeField] private TextMeshProUGUI _currentMoneyText;
 
@@ -21,8 +22,12 @@ public class Store : MonoBehaviour
     [SerializeField] private InventorySO _inventoryData;
     [SerializeField] private PlayerDataSO _playerData;
 
+    private AudioManager _audioManager;
+
     void Start()
     {
+        _audioManager = AudioManager.Instance;
+
         _closeButton.onClick.AddListener(CloseStore);
 
         CreateStoreItems();
@@ -61,6 +66,8 @@ public class Store : MonoBehaviour
     {
         _storePanel.SetActive(true);
 
+        _storePanelBorder.SetActive(true);
+
         Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
@@ -70,7 +77,11 @@ public class Store : MonoBehaviour
 
     public void CloseStore()
     {
+        _audioManager.PlayButtonClickSound();
+
         _storePanel.SetActive(false);
+
+        _storePanelBorder.SetActive(false);
 
         Time.timeScale = 1f; 
 

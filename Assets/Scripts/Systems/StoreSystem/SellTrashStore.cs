@@ -7,6 +7,7 @@ public class SellTrashStore : MonoBehaviour
     [Header("Store Settings")]
     [SerializeField] private StoreType _storeType;
     [SerializeField] private GameObject _storePanel;
+    [SerializeField] private GameObject _storePanelBorder;
     [SerializeField] private TextMeshProUGUI _currentMoneyText;
 
     [Header("UI Elements")]
@@ -25,12 +26,17 @@ public class SellTrashStore : MonoBehaviour
     [SerializeField] private Button _sellTrashButton;
     [SerializeField] private Button _addTrashCountButton;
     [SerializeField] private Button _subTrashCountButton;
+    [SerializeField] private AudioClip _sellAudioClip;
     private InventoryItem _trashItem;
     private int _currentTrashCount = 0;
     private int _maxTrashCount = 0;
 
+    private AudioManager _audioManager;
+
     void Start()
     {
+        _audioManager = AudioManager.Instance;
+
         _closeButton.onClick.AddListener(CloseStore);
 
         _addTrashCountButton.interactable = false;
@@ -113,8 +119,10 @@ public class SellTrashStore : MonoBehaviour
 
     private void OnAddTrashCountButtonClicked()
     {
+        _audioManager.PlayButtonClickSound();
+
         if (_currentTrashCount < _maxTrashCount)
-        {            
+        {
             _currentTrashCount++;
 
             _subTrashCountButton.interactable = true;
@@ -141,16 +149,19 @@ public class SellTrashStore : MonoBehaviour
 
     private void OnSubTrashCountButtonClicked()
     {
+        _audioManager.PlayButtonClickSound();
+
         if (_currentTrashCount > 0)
-        {            
+        {
             _currentTrashCount--;
 
             _addTrashCountButton.interactable = true;
 
             _trashSellCountText.text = _currentTrashCount.ToString();
-            
+
             _moneyToReceiveText.text = (_currentTrashCount * _trashSellPrice).ToString();
-        }else
+        }
+        else
         {
             _subTrashCountButton.interactable = false;
         }
@@ -186,6 +197,8 @@ public class SellTrashStore : MonoBehaviour
 
     private void OnSellTrashButtonClicked()
     {
+        _audioManager.PlaySound(_sellAudioClip);
+
         if (_currentTrashCount <= 0) return;
 
         int totalMoneyEarned = _currentTrashCount * _trashSellPrice;
@@ -213,7 +226,11 @@ public class SellTrashStore : MonoBehaviour
 
     public void OpenStore()
     {
+        _audioManager.PlayButtonClickSound();
+
         _storePanel.SetActive(true);
+
+        _storePanelBorder.SetActive(true);
 
         Time.timeScale = 0f;
 
@@ -226,7 +243,11 @@ public class SellTrashStore : MonoBehaviour
 
     public void CloseStore()
     {
+        _audioManager.PlayButtonClickSound();
+
         _storePanel.SetActive(false);
+
+        _storePanelBorder.SetActive(false);
 
         Time.timeScale = 1f; 
 

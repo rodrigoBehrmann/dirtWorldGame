@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectableItem
   Item: {fileID: 11400000, guid: ada21cd6906a1a54db31a3c1b0d30fcf, type: 2}
   InteractableCanvas: {fileID: 7070010354813454627}
+  _collectSound: {fileID: 8300000, guid: 49d6dd5fb546ce548922663e995f666e, type: 3}
 --- !u!65 &7928990012926790467
 BoxCollider:
   m_ObjectHideFlags: 0

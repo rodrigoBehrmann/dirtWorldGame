@@ -25,9 +25,7 @@ public class SaveGameManager : MonoBehaviour
 
         LoadData(_inventoryKey, Inventory);
         LoadData(_playerDataKey, PlayerData);
-    }
-
-    
+    }    
 
     public void LoadData(string key, ScriptableObject data)
     {

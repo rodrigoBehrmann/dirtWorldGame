@@ -10,13 +10,18 @@ public class StoreItem : MonoBehaviour
     [SerializeField] private Image _itemIcon;
     [SerializeField] private TextMeshProUGUI _itemPriceText;
     [SerializeField] private Button _buyButton;
+    [SerializeField] private AudioClip _buySoundClip;
 
     private bool _playerHasItem = false;
     private InventorySO _inventoryData;
     private PlayerDataSO _playerData;
 
+    private AudioManager _audioManager;
+
     void Start()
     {
+        _audioManager = AudioManager.Instance;
+
         _itemPriceText.text = _itemData.Price.ToString();
 
         _itemIcon.sprite = _itemData.ItemIcon;
@@ -41,6 +46,8 @@ public class StoreItem : MonoBehaviour
 
     private void OnBuyButtonClicked()
     {
+        _audioManager.PlaySound(_buySoundClip);
+
         EventBus.Invoke(new BuyItemEvent(_itemData));
 
         InventoryItem inventoryItem = new InventoryItem

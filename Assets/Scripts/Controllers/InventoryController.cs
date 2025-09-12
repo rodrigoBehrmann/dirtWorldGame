@@ -24,9 +24,11 @@ public class InventoryController : MonoBehaviour
     private InventoryItem _selectedItem;
 
     private InputManager _inputManager;
+    private AudioManager _audioManager;
 
     void Start()
     {
+        _audioManager = AudioManager.Instance;
         _inputManager = InputManager.Instance;
 
         _inputManager.InputControl.Inventory.OpenInventory.started += ctx =>
@@ -171,6 +173,7 @@ public class InventoryController : MonoBehaviour
 
     private void OnInventoryOpened()
     {
+        _audioManager.PlayButtonClickSound();
         _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
 
         if (_inventoryPanel.activeSelf)
@@ -255,6 +258,7 @@ public class InventoryController : MonoBehaviour
 
     private void OnRemoveItemButtonClicked()
     {
+        _audioManager.PlayButtonClickSound();
         _itemSelectedPanel.SetActive(false);
         RemoveItemFromInventory(_selectedItem,_selectedItem.Amount);
     }
@@ -278,12 +282,16 @@ public class InventoryController : MonoBehaviour
 
                 UpdateInventoryItems(inventoryItem, true);
 
+                VerifyEmptyItemsInSlots();
+
                 return;
             }
         }
         _inventoryData.InventoryItems.Add(inventoryItem);
 
-        UpdateInventoryItems(inventoryItem,true);
+        UpdateInventoryItems(inventoryItem, true);
+        
+        VerifyEmptyItemsInSlots();
     }
 
     public void RemoveItemFromInventory(InventoryItem inventoryItem, int amount = 1)
@@ -302,6 +310,8 @@ public class InventoryController : MonoBehaviour
                 UpdateInventoryItems(inventoryItem, false, amount);
 
                 EventBus.Invoke(new InventoryHasChangedEvent(invItem.Amount));
+
+                VerifyEmptyItemsInSlots();
                 
                 return;
             }

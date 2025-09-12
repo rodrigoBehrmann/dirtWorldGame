@@ -21,6 +21,8 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private Button _itemButton;
     private InventoryItem _inventoryItem;
 
+    private AudioManager _audioManager;
+
     void Awake()
     {
         _itemButton = GetComponent<Button>();
@@ -28,6 +30,7 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     private void Start()
     {
+        _audioManager = AudioManager.Instance;
         _inputManager = InputManager.Instance;
         _inputManager.InputControl.UI.Point.performed += ctx =>
         {
@@ -89,6 +92,7 @@ public class InventoryItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     private void OnItemButtonClicked()
     {
+        _audioManager.PlayButtonClickSound();
         _inventoryItem.Amount = ItemAmount;        
         EventBus.Invoke(new InventoryItemSelectedEvent(_inventoryItem));
     }

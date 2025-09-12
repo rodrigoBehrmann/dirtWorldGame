@@ -11,9 +11,14 @@ public class CollectableItem : MonoBehaviour
     [SerializeField] private GameObject InteractableCanvas;
     private Camera _mainCamera;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip _collectSound;
+
     private bool _canCollect = false;
 
     private InputManager _inputManager;
+
+    private AudioManager _audioManager;
 
     void Start()
     {
@@ -29,6 +34,8 @@ public class CollectableItem : MonoBehaviour
         };
 
         SetItem(Item);
+        
+        _audioManager = AudioManager.Instance;
     }
 
     private void SetItem(ItemSO item)
@@ -75,6 +82,7 @@ public class CollectableItem : MonoBehaviour
         if (_canCollect)
         {
             EventBus.Invoke(new AddItemToInventoryEvent(_inventoryItem));
+            _audioManager.PlaySound(_collectSound);
             gameObject.SetActive(false);
         }
     }
