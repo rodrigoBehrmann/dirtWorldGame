@@ -1108,6 +1108,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: bdd8b59fd28ade14d951aeeb4c9644d0, type: 3}
   m_PrefabInstance: {fileID: 283480438}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &289212708 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7847308875571263360, guid: 02921bbcc7c56ae4690d197d1db31e27, type: 3}
+  m_PrefabInstance: {fileID: 1778721047477505398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &323893383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4960769208187330649, guid: 3c7d5dece75cf9845ad850601668e7d8, type: 3}
@@ -1789,17 +1794,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: bdd8b59fd28ade14d951aeeb4c9644d0, type: 3}
   m_PrefabInstance: {fileID: 470144813}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &500183318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2330528022108850384, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
-  m_PrefabInstance: {fileID: 4866025881028615675}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &508218667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1098887101500760573, guid: 3c7d5dece75cf9845ad850601668e7d8, type: 3}
@@ -2906,7 +2900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &779707831
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3575,6 +3569,11 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!137 &908374134 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4779817726879044791, guid: 02921bbcc7c56ae4690d197d1db31e27, type: 3}
+  m_PrefabInstance: {fileID: 1778721047477505398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &929618376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4939,6 +4938,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: bdd8b59fd28ade14d951aeeb4c9644d0, type: 3}
   m_PrefabInstance: {fileID: 1112212460}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &1128221182 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 118591583621909936, guid: 02921bbcc7c56ae4690d197d1db31e27, type: 3}
+  m_PrefabInstance: {fileID: 1778721047477505398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1134576502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5378,6 +5382,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3c7d5dece75cf9845ad850601668e7d8, type: 3}
   m_PrefabInstance: {fileID: 1192699179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1208588241 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6445594189120769485, guid: 02921bbcc7c56ae4690d197d1db31e27, type: 3}
+  m_PrefabInstance: {fileID: 1778721047477505398}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1228629278
 PrefabInstance:
@@ -6012,6 +6021,40 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &1474147704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8525346246134289526, guid: 02921bbcc7c56ae4690d197d1db31e27, type: 3}
+  m_PrefabInstance: {fileID: 1778721047477505398}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1474147711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474147704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00202f446a02c749ae73179de30a792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  _headMesh: {fileID: 908374134}
+  _bodyMesh: {fileID: 289212708}
+  _legsMesh: {fileID: 1128221182}
+  _feetMesh: {fileID: 1208588241}
+  _headItems: []
+  _bodyItems:
+  - ItemName: Shirt_1
+    ItemCategory: 2
+    ItemMesh: {fileID: -5819183975530660181, guid: af2185a00d15fcd41aa1d0478fa361f9, type: 3}
+  - ItemName: Shirt_2
+    ItemCategory: 2
+    ItemMesh: {fileID: 6184519694431969831, guid: c1018c80976631340b7b65c688d8aa5e, type: 3}
+  - ItemName: Shirt_3
+    ItemCategory: 2
+    ItemMesh: {fileID: 293252994975604543, guid: a07ad5e1daa66d749b77b4790e229b3a, type: 3}
+  _legsItems: []
+  _feetItems: []
 --- !u!1001 &1477693897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9943,7 +9986,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8525346246134289526, guid: 02921bbcc7c56ae4690d197d1db31e27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1474147711}
   m_SourcePrefab: {fileID: 100100000, guid: 02921bbcc7c56ae4690d197d1db31e27, type: 3}
 --- !u!1 &1855187082768759814
 GameObject:
@@ -10605,10 +10651,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 82129058}
     m_Modifications:
-    - target: {fileID: 1200587426311441486, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4497405341221716711, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10689,17 +10731,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4674832882909910606, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
-      propertyPath: _closeButton
-      value: 
-      objectReference: {fileID: 500183318}
     - target: {fileID: 7367532953726302015, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
       propertyPath: m_Name
       value: PF_Store
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367532953726302015, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

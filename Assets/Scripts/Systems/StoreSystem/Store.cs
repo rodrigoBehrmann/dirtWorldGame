@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Store : MonoBehaviour
     [SerializeField] private StoreType _storeType;
     [SerializeField] private GameObject _storePanel;
     [SerializeField] private GameObject _storeContainer;
+    [SerializeField] private TextMeshProUGUI _currentMoneyText;
 
     [Header("Store Items")]
     [SerializeField] private StoreItemSO[] _storeItems;
@@ -35,16 +37,31 @@ public class Store : MonoBehaviour
             storeItem.GetComponent<StoreItem>().SetItemData(item);
         }
     }
+    
+    private void OnEnable()
+    {
+        EventBus.Subscribe<PlayerMoneyChangedEvent>(OnPlayerMoneyChangedEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBus.Unsubscribe<PlayerMoneyChangedEvent>(OnPlayerMoneyChangedEvent);
+    }
+
+    private void OnPlayerMoneyChangedEvent(PlayerMoneyChangedEvent evt)
+    {
+        _currentMoneyText.text = evt.CurrentMoney.ToString();
+    }
 
     public void OpenStore()
     {
         _storePanel.SetActive(true);
 
-        Time.timeScale = 0f;        
+        Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
 
-        Cursor.visible = true;        
+        Cursor.visible = true;
     }
 
     public void CloseStore()

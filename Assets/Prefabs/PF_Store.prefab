@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4655980887635223659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -862,12 +862,13 @@ MonoBehaviour:
   _storeType: 0
   _storePanel: {fileID: 1200587426311441486}
   _storeContainer: {fileID: 1785106750415045392}
+  _currentMoneyText: {fileID: 1525662890116135854}
   _storeItems:
   - {fileID: 11400000, guid: d8827af26f38d2f42a0b0e9c087a21e3, type: 2}
   - {fileID: 11400000, guid: 5140ce1e2ede96848aa95103050b91a9, type: 2}
   - {fileID: 11400000, guid: 390977f64b0ea8d49a55ea10b78c7f7e, type: 2}
   _storeItemPrefab: {fileID: 498149406372408771, guid: 3cd0754afa691cd4db86a531ab93e6bb, type: 3}
-  _closeButton: {fileID: 0}
+  _closeButton: {fileID: 2330528022108850384}
 --- !u!1 &9158605943798305278
 GameObject:
   m_ObjectHideFlags: 0

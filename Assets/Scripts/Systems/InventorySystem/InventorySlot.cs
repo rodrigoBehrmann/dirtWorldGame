@@ -24,6 +24,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                     itemSlot.ParentAfterDrag = transform;
                     itemSlot.transform.SetParent(transform);
                     itemSlot.transform.localPosition = Vector3.zero;
+
+                    EventBus.Invoke(new PlayerCustomizationEvent(itemSlot.ItemName, itemSlot.ItemCategory));
                 }
             }else if (itemSlot != null && ItemType.Contains(itemSlot.ItemType))
             {

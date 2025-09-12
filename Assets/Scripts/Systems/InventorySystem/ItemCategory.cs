@@ -2,7 +2,7 @@ public enum ItemCategory
 {
     Trash,
     Shoe,
-    Cloth,
+    Shirt,
     Pant,
     Shoes,
     Hair,

@@ -8,5 +8,5 @@ public class StoreItemSO : ScriptableObject
     [HideInInspector] public int Amout = 1;
     public Sprite ItemIcon;
     public ItemType ItemType;
-    public ItemCategory ItemCategory;
+    public ItemCategory ItemCategory;    
 }
