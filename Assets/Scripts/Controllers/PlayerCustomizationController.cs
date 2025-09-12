@@ -37,7 +37,7 @@ public class PlayerCustomizationController : MonoBehaviour
             case ItemCategory.Shirt:
                 EquipItem(_bodyItems, evt.ItemName, evt.ItemCategory);
                 break;
-            case ItemCategory.Pant:
+            case ItemCategory.Pants:
                 EquipItem(_legsItems, evt.ItemName, evt.ItemCategory);
                 break;
             case ItemCategory.Shoes:
@@ -62,7 +62,7 @@ public class PlayerCustomizationController : MonoBehaviour
                     case ItemCategory.Shirt:
                         _bodyMesh.sharedMesh = item.ItemMesh;
                         break;
-                    case ItemCategory.Pant:
+                    case ItemCategory.Pants:
                         _legsMesh.sharedMesh = item.ItemMesh;
                         break;
                     case ItemCategory.Shoes:

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5857812331200100934}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm_Upper.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2608172346965442678}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2373824294240035121}
   - component: {fileID: 4779817726879044791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HairStyle_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 440432777986625657, guid: af2185a00d15fcd41aa1d0478fa361f9, type: 3}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 61612269635315866}
   - {fileID: 5104466118777344191}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9104577003692279275}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm_Lower.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7415597245364667596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8226458325172285450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4362838333816811524}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm_Lower.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6496813649064571726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,13 +347,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7155132864557252026}
   - component: {fileID: 4019257859625061408}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shirt_LongSleeve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7155132864557252026
 Transform:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2624668371567226735}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141086365349871617}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7570087589603679255}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Toes.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381854334979792384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leg_Upper.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3106426072909914230}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leg_Lower.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 485191226086613864}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942935614360440779}
   - component: {fileID: 7847308875571263360}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jacket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +721,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -5819183975530660181, guid: af2185a00d15fcd41aa1d0478fa361f9, type: 3}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 61612269635315866}
   - {fileID: 5104466118777344191}
@@ -758,7 +758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3645418657850792429}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Toes.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2762197837275210481}
   - component: {fileID: 118591583621909936}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pants_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -4856331242625222461, guid: af2185a00d15fcd41aa1d0478fa361f9, type: 3}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 61612269635315866}
   - {fileID: 5104466118777344191}
@@ -900,7 +900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7012720510635093038}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2971577654217924156}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerCameraRootPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 570671663891622393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leg_Lower.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 61612269635315866}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5104466118777344191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2872633719884783341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leg_Upper.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,7 +1092,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3551509956138427072}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8348143982258832879}
   - component: {fileID: 6445594189120769485}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shoe_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1198,7 +1198,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 8061817779763245466, guid: af2185a00d15fcd41aa1d0478fa361f9, type: 3}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 61612269635315866}
   - {fileID: 5104466118777344191}
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 3770423518386729504}
   - component: {fileID: 8686830784833111580}
   - component: {fileID: 1800051096451111092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PF_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1392,40 +1392,40 @@ MonoBehaviour:
   _legsMesh: {fileID: 118591583621909936}
   _feetMesh: {fileID: 6445594189120769485}
   _headItems:
-  - ItemName: Hair_1
+  - ItemName: Simple Hair
     ItemCategory: 5
     ItemMesh: {fileID: 4300000, guid: ce8db3cb403b5024687e9b5006cb18da, type: 2}
-  - ItemName: Hair_2
+  - ItemName: Hairy Situation
     ItemCategory: 5
     ItemMesh: {fileID: 4300000, guid: 1567aef0ffed61e40ba73e0ad07800bf, type: 2}
-  - ItemName: Hair_3
+  - ItemName: Bad Hair Day
     ItemCategory: 5
     ItemMesh: {fileID: 4300000, guid: 9c258ba411abbbc45a3091a9176614e3, type: 2}
   _bodyItems:
-  - ItemName: Shirt_1
+  - ItemName: The Shirt
     ItemCategory: 2
     ItemMesh: {fileID: 4300000, guid: 47b58bd9a8acc7e4890cfbbbad0297d4, type: 2}
-  - ItemName: Shirt_2
+  - ItemName: Shirt Happens
     ItemCategory: 2
     ItemMesh: {fileID: 4300000, guid: 4f6b42e8a0b4595468b1a96b2a28c7cc, type: 2}
-  - ItemName: Shirt_3
+  - ItemName: Doctor Shirt
     ItemCategory: 2
     ItemMesh: {fileID: 4300000, guid: aa8dc50c6fb0635458312a0317f0c20e, type: 2}
   _legsItems:
-  - ItemName: Pant_1
+  - ItemName: Simple Pants
     ItemCategory: 3
     ItemMesh: {fileID: 4300000, guid: 0d12efd685c3c5742af05de2f030e1da, type: 2}
-  - ItemName: Pant_2
+  - ItemName: Leg Day
     ItemCategory: 3
     ItemMesh: {fileID: 4300000, guid: d8da60a2d30dc764ab974c70a4e1ba37, type: 2}
   _feetItems:
-  - ItemName: Shoes_1
+  - ItemName: Simple Shoes
     ItemCategory: 4
     ItemMesh: {fileID: 4300000, guid: 6bdca2c46c8b8214fb0ff203bc7c3c94, type: 2}
-  - ItemName: Shoes_2
+  - ItemName: Same Shoes
     ItemCategory: 4
     ItemMesh: {fileID: 4300000, guid: 089f1234dfb9a784dadf0147a7045edc, type: 2}
-  - ItemName: Shoes_3
+  - ItemName: Sock and Roll
     ItemCategory: 4
     ItemMesh: {fileID: 4300000, guid: ccf6cf18853a52644b7a87082305c086, type: 2}
 --- !u!1 &8555966728263867432
@@ -1437,7 +1437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5490707893885907601}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm_Upper.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,7 +1470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7281334072882738433}
   - component: {fileID: 2614098868487112518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

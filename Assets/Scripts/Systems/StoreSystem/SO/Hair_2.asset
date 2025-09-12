@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11ce48a38b39a549b6baf0a520c1510, type: 3}
   m_Name: Hair_2
   m_EditorClassIdentifier: Assembly-CSharp::StoreItemSO
-  ItemName: Hair_2
+  ItemName: Hairy Situation
   Price: 30
   Amout: 1
   ItemIcon: {fileID: 21300000, guid: 8b158c88a54b98a47b1ba800f02432a7, type: 3}

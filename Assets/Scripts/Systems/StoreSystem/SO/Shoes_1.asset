@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11ce48a38b39a549b6baf0a520c1510, type: 3}
   m_Name: Shoes_1
   m_EditorClassIdentifier: Assembly-CSharp::StoreItemSO
-  ItemName: Shoes_1
+  ItemName: Simple Shoes
   Price: 20
   Amout: 1
   ItemIcon: {fileID: 21300000, guid: f9053f87f7469cf41be61e09f876dad0, type: 3}

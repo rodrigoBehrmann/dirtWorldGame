@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11ce48a38b39a549b6baf0a520c1510, type: 3}
   m_Name: Shirt_3
   m_EditorClassIdentifier: Assembly-CSharp::StoreItemSO
-  ItemName: Shirt_3
+  ItemName: Doctor Shirt
   Price: 45
   Amout: 1
   ItemIcon: {fileID: 21300000, guid: 7c98cffaf3ba85c48b4bee2059c7ef38, type: 3}
