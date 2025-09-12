@@ -35649,7 +35649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7367532953726302015, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
       propertyPath: m_Name
-      value: PF_PantStore
+      value: PF_PantsStore
       objectReference: {fileID: 0}
     - target: {fileID: 8587873171763998153, guid: c9cd6478d49842d47ba4bace6f92f213, type: 3}
       propertyPath: m_fontAsset
@@ -39642,14 +39642,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 82129058}
     m_Modifications:
-    - target: {fileID: 1872286377291941224, guid: db1208c8f52fa87468be6c801e591fd9, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e65055f7179152d43be661dd7c18f51d, type: 2}
-    - target: {fileID: 1872286377291941224, guid: db1208c8f52fa87468be6c801e591fd9, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2609032221232253689, guid: db1208c8f52fa87468be6c801e591fd9, type: 3}
       propertyPath: m_Camera
       value: 
@@ -39697,14 +39689,6 @@ PrefabInstance:
     - target: {fileID: 5720113305500556740, guid: db1208c8f52fa87468be6c801e591fd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7081491493203288286, guid: db1208c8f52fa87468be6c801e591fd9, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e65055f7179152d43be661dd7c18f51d, type: 2}
-    - target: {fileID: 7081491493203288286, guid: db1208c8f52fa87468be6c801e591fd9, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

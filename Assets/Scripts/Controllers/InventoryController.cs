@@ -56,7 +56,9 @@ public class InventoryController : MonoBehaviour
             if (i < _inventoryData.InventoryItems.Count)
             {
                 GameObject inventoryItem = Instantiate(_inventoryItemPrefab, slot.transform);
-                inventoryItem.GetComponent<InventoryItemSlot>().SetItem(_inventoryData.InventoryItems[i], true,_inventoryData.InventoryItems[i].Amount);
+                inventoryItem.GetComponent<InventoryItemSlot>().SetItem(_inventoryData.InventoryItems[i], true, _inventoryData.InventoryItems[i].Amount);
+                
+                inventoryItem.GetComponent<InventoryItemSlot>().RootCanvas = _rootCanvas.transform;
             }
         }
     }
@@ -133,6 +135,11 @@ public class InventoryController : MonoBehaviour
                 InventoryItemSlot itemSlot = slot.GetChild(0).GetComponent<InventoryItemSlot>();
 
                 itemSlot.SetItem(inventoryItem, addItem);
+
+                if(itemSlot.RootCanvas == null)
+                {
+                    itemSlot.RootCanvas = _rootCanvas.transform;
+                }
 
                 if (inventoryItem.Amount <= 0 && !addItem)
                 {
