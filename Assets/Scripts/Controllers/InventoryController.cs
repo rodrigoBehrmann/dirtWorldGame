@@ -104,22 +104,12 @@ public class InventoryController : MonoBehaviour
 
                                 if (itemSlot.ItemAmount <= 0)
                                 {
-                                    Debug.Log("Removing item slot: " + itemSlot.ItemName);
-
                                     Destroy(itemSlot.gameObject);
                                     return;
                                 }
                                 else
                                 {
                                     itemSlot.SetItem(inventoryItem, addItem, amount);
-
-                                    // if (itemSlot.ItemAmount >= amount)
-                                    // {
-                                    //     Debug.Log("Removing item slot: " + itemSlot.ItemName);
-
-                                    //     Destroy(itemSlot.gameObject);
-                                    //     return;
-                                    // }
                                 }
 
                                 return;
@@ -149,7 +139,6 @@ public class InventoryController : MonoBehaviour
 
                 if (inventoryItem.Amount <= 0 && !addItem)
                 {
-                    Debug.Log("Removing item slot: " + itemSlot.ItemName);
                     Destroy(itemSlot.gameObject);
                 }
 
@@ -179,7 +168,6 @@ public class InventoryController : MonoBehaviour
                 Transform slot = _inventorySlotsContainer.transform.GetChild(i);
                 if (slot.childCount > 0)
                 {
-                    Debug.Log("Removing item slot");
                     Destroy(slot.GetChild(0).gameObject);
                 }
             }

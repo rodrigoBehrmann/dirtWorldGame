@@ -66,7 +66,6 @@ public class PlayerCustomizationController : MonoBehaviour
                         _legsMesh.sharedMesh = item.ItemMesh;
                         break;
                     case ItemCategory.Shoes:
-                        Debug.Log($"Equipping Shoes Mesh: {item.ItemMesh.name}");
                         _feetMesh.sharedMesh = item.ItemMesh;                        
                         break;
                     default:

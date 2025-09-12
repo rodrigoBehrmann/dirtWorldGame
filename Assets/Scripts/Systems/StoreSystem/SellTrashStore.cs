@@ -60,8 +60,6 @@ public class SellTrashStore : MonoBehaviour
                     {
                         _maxTrashCount = item.Amount;
 
-                        Debug.Log($"Max trash count updated: {item.Amount}");
-
                         _trashItem = item;
 
                         break;
@@ -77,7 +75,6 @@ public class SellTrashStore : MonoBehaviour
             }
             else
             {
-                Debug.Log("Inventory is empty.");
                 _currentTrashCount = 0;
                 _maxTrashCount = 0;
                 _addTrashCountButton.interactable = false;
@@ -150,8 +147,8 @@ public class SellTrashStore : MonoBehaviour
 
             _addTrashCountButton.interactable = true;
 
-            Debug.Log($"Current trash count: {_currentTrashCount}");
             _trashSellCountText.text = _currentTrashCount.ToString();
+            
             _moneyToReceiveText.text = (_currentTrashCount * _trashSellPrice).ToString();
         }else
         {

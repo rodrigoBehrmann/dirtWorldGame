@@ -17,7 +17,6 @@ public class NPCController : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
 
-        Debug.Log($"Agent Type ID: {_agent.agentTypeID}");
         if (_agent.agentTypeID == 0)
         {
             _animator = GetComponent<Animator>();
