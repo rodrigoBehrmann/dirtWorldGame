@@ -54,13 +54,8 @@ public class InventoryController : MonoBehaviour
             if (i < _inventoryData.InventoryItems.Count)
             {
                 GameObject inventoryItem = Instantiate(_inventoryItemPrefab, slot.transform);
-                inventoryItem.GetComponent<InventoryItemSlot>().SetItem(_inventoryData.InventoryItems[i], true);
+                inventoryItem.GetComponent<InventoryItemSlot>().SetItem(_inventoryData.InventoryItems[i], true,_inventoryData.InventoryItems[i].Amount);
             }
-        }
-        
-        foreach (var item in _inventoryData.InventoryItems)
-        {
-            GameObject slot = Instantiate(_itemSlotPrefab, _inventorySlotsContainer.transform);
         }
     }
 

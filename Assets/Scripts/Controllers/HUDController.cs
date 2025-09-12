@@ -11,9 +11,16 @@ public class HUDController : MonoBehaviour
 
     void Start()
     {
-        _moneyText.text = _playerData.InitialMoney.ToString();
-        
-        _playerData.CurrentMoney = _playerData.InitialMoney;
+        if (_playerData.CurrentMoney <= 0)
+        {
+            _moneyText.text = _playerData.InitialMoney.ToString();
+
+            _playerData.CurrentMoney = _playerData.InitialMoney;
+        }
+        else
+        {
+            _moneyText.text = _playerData.CurrentMoney.ToString();
+        }
     }
 
     private void OnEnable()
