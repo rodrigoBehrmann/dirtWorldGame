@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TrashItem
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   ItemName: Trash
-  ItemIcon: {fileID: 21300000, guid: 929b54ef59aaeba4a9807a6ef928457b, type: 3}
+  ItemIcon: {fileID: 21300000, guid: fe37552163e083b40a18e1e3bb939a07, type: 3}
   ItemType: 2
+  ItemCategory: 0
   Amount: 1

@@ -15,6 +15,6 @@ MonoBehaviour:
   ItemName: Hair_2
   Price: 30
   Amout: 1
-  ItemIcon: {fileID: 21300000, guid: e20340ac73587864ab34d78294bc0bfa, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 8b158c88a54b98a47b1ba800f02432a7, type: 3}
   ItemType: 1
   ItemCategory: 5

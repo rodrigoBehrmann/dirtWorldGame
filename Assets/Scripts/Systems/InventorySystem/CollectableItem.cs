@@ -5,7 +5,7 @@ public class CollectableItem : MonoBehaviour
 {
     [Header("Collectable Settings")]
     public ItemSO Item;
-    public InventoryItem _inventoryItem = new InventoryItem();
+    private InventoryItem _inventoryItem = new InventoryItem();
 
     [Header("UI Settings")]
     [SerializeField] private GameObject InteractableCanvas;

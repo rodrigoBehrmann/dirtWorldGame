@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bffc87cffbebc34b9e46cb43e3ff5b4, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDataSO
-  InitialMoney: 100
-  CurrentMoney: 20
+  InitialMoney: 1000
+  CurrentMoney: 10
   Inventory: {fileID: 11400000, guid: 2c0f8cad9f2942149b2c9dad63137656, type: 2}

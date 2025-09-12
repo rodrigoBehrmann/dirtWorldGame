@@ -35,11 +35,6 @@ public class NPCController : MonoBehaviour
     void Update()
     {
         SetNextDestination();
-
-        if (_agent.agentTypeID == 0)
-        {
-            Debug.Log($"Velocity: {_agent.velocity}, Speed: {_agent.speed}");
-        }
     }
 
     private void SetNextDestination()

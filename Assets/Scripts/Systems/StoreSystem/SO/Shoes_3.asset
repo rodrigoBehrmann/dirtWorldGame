@@ -15,6 +15,6 @@ MonoBehaviour:
   ItemName: Shoes_3
   Price: 25
   Amout: 1
-  ItemIcon: {fileID: 21300000, guid: 0a58ee60e05b787438eda215831692b9, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 2d767b3d379173e4d866dc5a61167c95, type: 3}
   ItemType: 1
   ItemCategory: 4

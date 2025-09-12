@@ -15,6 +15,6 @@ MonoBehaviour:
   ItemName: Pant_2
   Price: 25
   Amout: 1
-  ItemIcon: {fileID: 21300000, guid: 5ecb3acb3d2847f4b8e949b0b4f872e2, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 8c1755c6bcc813e48a0a491c53eb5514, type: 3}
   ItemType: 1
   ItemCategory: 3

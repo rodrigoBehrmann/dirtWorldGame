@@ -15,7 +15,6 @@ MonoBehaviour:
   ItemName: Shirt_1
   Price: 50
   Amout: 1
-  ItemIcon: {fileID: 21300000, guid: 575f0768799e8504a929d65ae3bc2c28, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 773479803d534514694c464f2f2edc3d, type: 3}
   ItemType: 1
   ItemCategory: 2
-  ItemMesh: {fileID: -5819183975530660181, guid: af2185a00d15fcd41aa1d0478fa361f9, type: 3}
