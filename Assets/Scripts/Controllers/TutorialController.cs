@@ -9,12 +9,14 @@ public class TutorialController : MonoBehaviour
     {
         //pause the game
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
         _closeTutorialButton.onClick.AddListener(CloseTutorial);
     }
 
     private void CloseTutorial()
     {
         tutorialPanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
     }
 }
