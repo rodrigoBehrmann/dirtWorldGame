@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3aae5f548eced4ebb79776afdecf04, type: 3}
   m_Name: InventoryData
   m_EditorClassIdentifier: Assembly-CSharp::InventorySO
+  InventoryItems: []
+  MaxInventoryItems: 14

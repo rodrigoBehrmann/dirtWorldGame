@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca3a7ac5bf2d5f41a2da1f554778b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectableItem
-  ItemType: 2
-  Amount: 1
+  Item: {fileID: 11400000, guid: ada21cd6906a1a54db31a3c1b0d30fcf, type: 2}
   InteractableCanvas: {fileID: 7070010354813454627}
 --- !u!65 &7928990012926790467
 BoxCollider:

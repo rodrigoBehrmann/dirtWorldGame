@@ -5,4 +5,6 @@ using UnityEngine;
 public class InventorySO : ScriptableObject
 {
     public List<InventoryItem> InventoryItems = new List<InventoryItem>();
+
+    public int MaxInventoryItems = 15;
 }

@@ -1,11 +1,11 @@
+using System;
 using UnityEngine;
 
 public class CollectableItem : MonoBehaviour
 {
     [Header("Collectable Settings")]
-    public ItemType ItemType;
-    public int Amount = 1;
-    private InventoryItem _inventoryItem = new InventoryItem();
+    public ItemSO Item;
+    public InventoryItem _inventoryItem = new InventoryItem();
 
     [Header("UI Settings")]
     [SerializeField] private GameObject InteractableCanvas;
@@ -21,15 +21,25 @@ public class CollectableItem : MonoBehaviour
 
         InteractableCanvas.SetActive(false);
 
-        _inventoryItem.ItemType = ItemType;
-        _inventoryItem.Amount = Amount;
-
         _inputManager = InputManager.Instance;
 
         _inputManager.InputControl.Actions.Interact.started += ctx =>
         {
             CollectItem();
         };
+
+        SetItem(Item);
+    }
+
+    private void SetItem(ItemSO item)
+    {
+        _inventoryItem.ItemName = item.ItemName;
+        
+        _inventoryItem.ItemIcon = item.ItemIcon;
+
+        _inventoryItem.ItemType = item.ItemType;
+
+        _inventoryItem.Amount = item.Amount;
     }
 
     void OnTriggerEnter(Collider other)
